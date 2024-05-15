@@ -113,8 +113,8 @@ import {SafeAreaView, View, Text, StyleSheet, Button} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
 export default function App() {
-  const [picker1SelectedValue, setPicker1SelectedValue] = useState("val-COMP2750-3"); 
-  const [picker2selectedValue, setPicker2SelectedValue] = useState("345");
+  const [picker1SelectedValue, setPicker1SelectedValue] = useState("Carrots - $5"); 
+  const [picker2selectedValue, setPicker2SelectedValue] = useState("1");
   const [calculatedValue, setCalculatedValue] = useState("Press the above button to calculate");
   return (
   <SafeAreaView style={styles.container}>
