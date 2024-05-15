@@ -166,7 +166,7 @@ export default function App() {
      }}
     />
 
-    <Text style={styles.heading}> {calculatedValue} </Text>
+    <Text style={styles.heading}> The total cost is:$ {calculatedValue} </Text>
   </View>
 </SafeAreaView>
 );
