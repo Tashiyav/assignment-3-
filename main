@@ -328,3 +328,173 @@ Image
             style = {{ width: 112, height: 136}}/>
   }
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+this is the broken calculator 
+HELPPPP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, {useState} from "react";
+import {SafeAreaView, View, Text, StyleSheet, Button} from 'react-native';
+import {Picker} from '@react-native-picker/picker';
+
+export default function App() {
+  const [picker1SelectedValue, setPicker1SelectedValue] = useState("Carrots - $5"); 
+  const [picker3selectedValue, setPicker3SelectedValue] = useState("1");
+  const [picker2selectedValue, setPicker2SelectedValue] = useState("Apples - $10");
+  const [picker4selectedValue, setPicker4SelectedValue] = useState("1");
+  const [calculatedValue, setCalculatedValue] = useState("Press the above button to calculate");
+
+  return (
+  <SafeAreaView style={styles.container}>
+    <View style ={styles.layer1}> 
+      <Text style={styles.heading1}>
+        Welcome to the Produce Onwer Group 
+      </Text> 
+    </View> 
+ <View style={styles.layer2}> 
+  <Picker
+    style={styles.picker1}
+    selectedValue={picker1SelectedValue}
+    onValueChange={(itemValue) => setPicker1SelectedValue(itemValue)}
+  > 
+    <Picker.Item label="Carrots - $5" value="5"/>
+    <Picker.Item label="Beans - $8" value="8"/>
+    <Picker.Item label="Corn - $6" value="6"/>
+    <Picker.Item label="Lettuce - $9" value="9"/>
+    <Picker.Item label="Tomato - $6" value="6"/>
+  </Picker>
+  <Picker
+    style={styles.picker3}
+    selectedValue={picker3selectedValue}
+    onValueChange={(itemValue) => setPicker3SelectedValue(itemValue)}
+  >
+    <Picker.Item label="1" value="1"/>
+    <Picker.Item label="2" value="2"/>
+    <Picker.Item label="3" value="3"/>
+    <Picker.Item label="4" value="4"/>
+    <Picker.Item label="5" value="5"/>
+  </Picker>
+</View>
+<View style={styles.layer2}> 
+  <Picker
+    style={styles.picker2}
+    selectedValue={picker2selectedValue}
+    onValueChange={(itemValue) => setPicker2SelectedValue(itemValue)}
+  >
+    <Picker.Item label="Apples - $10" value="10"/>
+    <Picker.Item label="Mango - $13" value="13"/>
+    <Picker.Item label="Raspberry - $12" value="12"/>
+    <Picker.Item label="Peach - $14" value="14"/>
+    <Picker.Item label="Pear - $10" value="10"/>
+  </Picker>
+  <Picker
+    style={styles.picker4}
+    selectedValue={picker4selectedValue}
+    onValueChange={(itemValue) => setPicker4SelectedValue(itemValue)}
+  >
+    <Picker.Item label="1" value="1"/>
+    <Picker.Item label="2" value="2"/>
+    <Picker.Item label="3" value="3"/>
+    <Picker.Item label="4" value="4"/>
+    <Picker.Item label="5" value="5"/>
+  </Picker>
+</View>
+<View style={styles.layer3}> 
+  <Button 
+    title="CALCULATOR"
+    onPress={() => {
+      const intPicker1Value = parseInt(picker1SelectedValue);
+      const intPicker2Value = parseInt(picker2selectedValue);
+      const intPicker3Value = parseInt(picker3SelectedValue);
+      const intPicker4Value = parseInt(picker4selectedValue);
+     // const help= intPicker1Value * intPicker3Value
+     // const me= intPicker2Value * intPicker4Value
+     const CalculatedValue=((intPicker1Value * intPicker3Value)+(intPicker2Value * intPicker4Value));
+    }}
+  />
+  <Text style={styles.heading}> The total cost is: $ {calculatedValue} </Text>
+</View>
+
+</SafeAreaView>
+);
+}
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#E3D3E3'
+    },
+    layer1:{
+      paddingTop:10, 
+    },
+    heading1:{ 
+      fontSize: 20, 
+      textAlign: 'center', 
+      marginTop: 50, 
+    }, 
+    layer2:{ 
+      flexDirection:'row', 
+      padding:'250' , 
+    }, 
+    picker1: { 
+      flex: 3, 
+    }, 
+    picker2:{ 
+      flex: 2, 
+    }, 
+    picker3: { 
+      flex: 3, 
+    },
+    picker4: { 
+      flex: 2, 
+    },
+    layer3:{ 
+      paddingTop:70, 
+    }, 
+    heading2:{ 
+      marginTop: 30,
+      textAlign: 'center',
+      colour: '#67e487',
+      fontSize: 20,
+      fontWeight: 10,
+    }
+    });
