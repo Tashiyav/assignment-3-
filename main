@@ -310,3 +310,10 @@ export default function App() {
     }
     });
 
+
+Image 
+ <View>
+            <Image source = {require('images.jpeg')} 
+            style = {{ width: 112, height: 136}}/>
+  }
+    });
