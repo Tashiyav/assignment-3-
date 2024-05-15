@@ -3,6 +3,9 @@ import {SafeAreaView, StyleSheet, View, Text, Button, Image} from 'react-native'
 import {Picker} from '@react-native-picker/picker'; 
 
 export default function App() {
+const [picker1SelectedValue, setPicker1SelectedValue] = useState("val-COMP2750-3"); 
+  const [picker2selectedValue, setPicker2SelectedValue] = useState("345");
+  const [calculatedValue, setCalculatedValue] = useState("Press the above button to give total cost");
   return (
   <SafeAreaView style={styles.container}>
     <View style ={styles.layer1}> 
@@ -43,9 +46,15 @@ export default function App() {
       </Picker>
     </View>
     <View style = {styles.layer3}> 
-      <Button title = "CALCULATOR"/> 
-      <Text style={styles.heading2}> 
-        Press this button to CALCULATE </Text> 
+<Button 
+    title = "CALCULATOR"
+    onPress={() => {
+      const lastChar = picker1SelectedValue[picker1SelectedValue.length - 1];
+      const charToIntForPicker1 = parseInt(lastChar);
+      const charToIntForPicker2 = parseInt(picker2selectedValue);
+     setCalculatedValue(charToIntForPicker1 * charToIntForPicker2); 
+     }}
+    />
     </View>
    <Image
   source={{uri: 'https://www.google.com/imgres?q=calculator&imgurl=https%3A%2F%2Fvectorportal.com%2Fstorage%2FzoAWXwCYII4P4tOjyMUbrBu5ecHHMrpx1ZxE2KSl.jpg&imgrefurl=https%3A%2F%2Fvectorportal.com%2Fvector%2Fcalculator%2F35224&docid=NDik545-lDWLlM&tbnid=qvB7h6puLPBW6M&vet=12ahUKEwiEp_iYr-aFAxU1qFYBHa_hCHEQM3oECGEQAA..i&w=1000&h=1000&hcb=2&ved=2ahUKEwiEp_iYr-aFAxU1qFYBHa_hCHEQM3oECGEQAA'}}
