@@ -1,11 +1,11 @@
-import React from "react";
-import {SafeAreaView, StyleSheet, View, Text, Button, Image} from 'react-native';
-import {Picker} from '@react-native-picker/picker'; 
+import React, {useState} from "react";
+import {SafeAreaView, View, Text, StyleSheet, Button} from 'react-native';
+import {Picker} from '@react-native-picker/picker';
 
 export default function App() {
-const [picker1SelectedValue, setPicker1SelectedValue] = useState("val-COMP2750-3"); 
-  const [picker2selectedValue, setPicker2SelectedValue] = useState("345");
-  const [calculatedValue, setCalculatedValue] = useState("Press the above button to give total cost");
+  const [picker1SelectedValue, setPicker1SelectedValue] = useState("Carrots - $5"); 
+  const [picker2selectedValue, setPicker2SelectedValue] = useState("1");
+  const [calculatedValue, setCalculatedValue] = useState("Press the above button to calculate");
   return (
   <SafeAreaView style={styles.container}>
     <View style ={styles.layer1}> 
@@ -13,55 +13,69 @@ const [picker1SelectedValue, setPicker1SelectedValue] = useState("val-COMP2750-3
         Welcome to the Produce Onwer Group 
       </Text> 
     </View> 
-  <View style={styles.layer2}> 
-    <Picker style={styles.picker1}> 
-      <Picker.Item label="Carrots - $5" value="val-Carrots - $5"/>
-      <Picker.Item label="Beans - $8" value="val-Beans - $8"/>
-      <Picker.Item label="Corn - $6" value="val-Corn - $6"/>
-      <Picker.Item label="Lettuce - $9" value="val-Lettuce - $9"/>
-      <Picker.Item label="Tomato - $6" value="val-Tomato - $6"/>
-    </Picker>
-    <Picker style={styles.picker2}> 
-        <Picker.Item label="1" value="val-1"/>
-        <Picker.Item label="2" value="val-2"/>
-        <Picker.Item label="3" value="val-3"/>
-        <Picker.Item label="4" value="val-4"/>
-        <Picker.Item label="5" value="val-5"/>
-      </Picker>
-    </View>
-  <View style={styles.layer2}> 
-    <Picker style={styles.picker1}> 
-      <Picker.Item label="Apples - $10" value="val-Apples - $10"/>
-      <Picker.Item label="Mango - $13" value="val-Mango - $13"/>
-      <Picker.Item label="Raspberry - $12" value="val-Raspberry - $12"/>
-      <Picker.Item label="Peach - $14" value="val-Peach - $14"/>
-      <Picker.Item label="Pear - $10" value="val-Pear - $10"/>
-    </Picker>
-    <Picker style={styles.picker2}>   
-        <Picker.Item label="1" value="val-1"/>
-        <Picker.Item label="2" value="val-2"/>
-        <Picker.Item label="3" value="val-3"/>
-        <Picker.Item label="4" value="val-4"/>
-        <Picker.Item label="5" value="val-5"/>
-      </Picker>
-    </View>
-    <View style = {styles.layer3}> 
-<Button 
-    title = "CALCULATOR"
+ <View style={styles.layer2}> 
+  <Picker
+    style={styles.picker1}
+    selectedValue={picker1SelectedValue}
+    onValueChange={(itemValue) => setPicker1SelectedValue(itemValue)}
+  > 
+    <Picker.Item label="Carrots - $5" value="5"/>
+    <Picker.Item label="Beans - $8" value="8"/>
+    <Picker.Item label="Corn - $6" value="6"/>
+    <Picker.Item label="Lettuce - $9" value="9"/>
+    <Picker.Item label="Tomato - $6" value="6"/>
+  </Picker>
+  <Picker
+    style={styles.picker2}
+    selectedValue={picker2selectedValue}
+    onValueChange={(itemValue) => setPicker2SelectedValue(itemValue)}
+  >
+    <Picker.Item label="1" value="1"/>
+    <Picker.Item label="2" value="2"/>
+    <Picker.Item label="3" value="3"/>
+    <Picker.Item label="4" value="4"/>
+    <Picker.Item label="5" value="5"/>
+  </Picker>
+</View>
+<View style={styles.layer2}> 
+  <Picker
+    style={styles.picker1}
+    selectedValue={picker1SelectedValue}
+    onValueChange={(itemValue) => setPicker1SelectedValue(itemValue)}
+  >
+    <Picker.Item label="Apples - $10" value="10"/>
+    <Picker.Item label="Mango - $13" value="13"/>
+    <Picker.Item label="Raspberry - $12" value="12"/>
+    <Picker.Item label="Peach - $14" value="14"/>
+    <Picker.Item label="Pear - $10" value="10"/>
+  </Picker>
+  <Picker
+    style={styles.picker2}
+    selectedValue={picker2selectedValue}
+    onValueChange={(itemValue) => setPicker2SelectedValue(itemValue)}
+  >
+    <Picker.Item label="1" value="1"/>
+    <Picker.Item label="2" value="2"/>
+    <Picker.Item label="3" value="3"/>
+    <Picker.Item label="4" value="4"/>
+    <Picker.Item label="5" value="5"/>
+  </Picker>
+</View>
+<View style={styles.layer3}> 
+  <Button 
+    title="CALCULATOR"
     onPress={() => {
-      const lastChar = picker1SelectedValue[picker1SelectedValue.length - 1];
-      const charToIntForPicker1 = parseInt(lastChar);
-      const charToIntForPicker2 = parseInt(picker2selectedValue);
-     setCalculatedValue(charToIntForPicker1 * charToIntForPicker2); 
-     }}
-    />
-    </View>
-   <Image
-  source={{uri: 'https://www.google.com/imgres?q=calculator&imgurl=https%3A%2F%2Fvectorportal.com%2Fstorage%2FzoAWXwCYII4P4tOjyMUbrBu5ecHHMrpx1ZxE2KSl.jpg&imgrefurl=https%3A%2F%2Fvectorportal.com%2Fvector%2Fcalculator%2F35224&docid=NDik545-lDWLlM&tbnid=qvB7h6puLPBW6M&vet=12ahUKEwiEp_iYr-aFAxU1qFYBHa_hCHEQM3oECGEQAA..i&w=1000&h=1000&hcb=2&ved=2ahUKEwiEp_iYr-aFAxU1qFYBHa_hCHEQM3oECGEQAA'}}
-  style={{width: 40, height: 40}}
-/>
-  </SafeAreaView>
-  );}
+      const intPicker1Value = parseInt(picker1SelectedValue);
+      const intPicker2Value = parseInt(picker2selectedValue);
+      setCalculatedValue(intPicker1Value * intPicker2Value);
+    }}
+  />
+  <Text style={styles.heading}> The total cost is: $ {calculatedValue} </Text>
+</View>
+
+</SafeAreaView>
+);
+}
 
   const styles = StyleSheet.create({
     container: {
@@ -97,9 +111,6 @@ const [picker1SelectedValue, setPicker1SelectedValue] = useState("val-COMP2750-3
       fontWeight: 10,
     }
     });
-
-
-
 
 
 
